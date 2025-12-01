@@ -10,8 +10,9 @@ document.addEventListener("DOMContentLoaded", () => {
       const response = await fetch("/activities");
       const activities = await response.json();
 
-      // Clear loading message
+      // Clear loading message and activity select options
       activitiesList.innerHTML = "";
+      activitySelect.innerHTML = '<option value="">-- Select an activity --</option>';
 
       // Populate activities list
       Object.entries(activities).forEach(([name, details]) => {
@@ -26,6 +27,33 @@ document.addEventListener("DOMContentLoaded", () => {
           <p><strong>Schedule:</strong> ${details.schedule}</p>
           <p><strong>Availability:</strong> ${spotsLeft} spots left</p>
         `;
+
+        // Participants section
+        const participantsDiv = document.createElement("div");
+        participantsDiv.className = "participants";
+
+        const participantsTitle = document.createElement("h5");
+        participantsTitle.textContent = "Participants";
+        participantsDiv.appendChild(participantsTitle);
+
+        const participantsListEl = document.createElement("ul");
+        participantsListEl.className = "participants-list";
+
+        if (!details.participants || details.participants.length === 0) {
+          const li = document.createElement("li");
+          li.className = "empty";
+          li.textContent = "No participants yet";
+          participantsListEl.appendChild(li);
+        } else {
+          details.participants.forEach((p) => {
+            const li = document.createElement("li");
+            li.textContent = p;
+            participantsListEl.appendChild(li);
+          });
+        }
+
+        participantsDiv.appendChild(participantsListEl);
+        activityCard.appendChild(participantsDiv);
 
         activitiesList.appendChild(activityCard);
 
