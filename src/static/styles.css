@@ -142,3 +142,73 @@ footer {
   padding: 20px;
   color: #666;
 }
+
+.participants {
+  margin-top: 12px;
+  padding-top: 10px;
+  border-top: 1px dashed #e0e0e0;
+}
+
+.participants h5 {
+  margin-bottom: 8px;
+  font-size: 14px;
+  color: #333;
+  font-weight: 600;
+}
+
+.participants-list {
+  list-style: none;
+  margin-left: 0;
+  padding-left: 0;
+}
+
+.participants-list li {
+  background-color: #ffffff;
+  border: 1px solid #f0f0f0;
+  border-radius: 6px;
+  padding: 6px 10px;
+  margin-bottom: 8px;
+  color: #444;
+  font-size: 14px;
+  box-shadow: 0 1px 1px rgba(0,0,0,0.03);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.participants-list li.empty {
+  background: transparent;
+  border: none;
+  color: #777;
+  font-style: italic;
+  padding: 0;
+  margin-bottom: 0;
+  box-shadow: none;
+}
+
+.participant-email {
+  color: #333;
+  font-weight: 500;
+  word-break: break-all;
+}
+
+.remove-btn {
+  background: transparent;
+  border: none;
+  color: #c62828;
+  font-size: 16px;
+  line-height: 1;
+  padding: 6px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.12s ease;
+}
+
+.remove-btn:hover {
+  background-color: rgba(198,40,40,0.08);
+}
+
+.remove-btn:focus {
+  outline: 2px solid rgba(26,35,126,0.12);
+  outline-offset: 2px;
+}
